@@ -1,0 +1,17 @@
+{
+    "name": "damoonpro/blog",
+    "description": "This is blog module for damoon company",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Damoon\\Blog\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Mohammad Mahdi Noorani",
+            "email": "matio.nora2000@gmail.com"
+        }
+    ],
+    "require": {}
+}
