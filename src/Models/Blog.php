@@ -34,4 +34,8 @@ class Blog extends Model
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
     }
+
+    public function categories(){
+        return $this->belongsToMany(BlogCategory::class, 'blog_category', 'category_id');
+    }
 }

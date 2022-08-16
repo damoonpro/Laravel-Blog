@@ -14,4 +14,8 @@ class BlogCategory extends Model
         'label',
         'confirmed',
     ];
+
+    public function blogs(){
+        return $this->belongsToMany(Blog::class, 'blog_category', foreignPivotKey: 'category_id');
+    }
 }
