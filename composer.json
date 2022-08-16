@@ -14,6 +14,7 @@
         }
     ],
     "require": {
-        "damoonpro/laravel-tools": "dev-main"
+        "damoonpro/laravel-tools": "dev-main",
+        "pishran/laravel-persian-slug": "^2.2"
     }
 }
