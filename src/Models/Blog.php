@@ -1,7 +1,8 @@
 <?php
 
-namespace Damoon\Blog\Models\Blog;
+namespace Damoon\Blog\Models;
 
+use Database\Factories\BlogFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Pishran\LaravelPersianSlug\HasPersianSlug;
@@ -10,6 +11,11 @@ use Spatie\Sluggable\SlugOptions;
 class Blog extends Model
 {
     use HasFactory, HasPersianSlug;
+
+    public static function factory($count = null, $state = [])
+    {
+        return new BlogFactory($count);
+    }
 
     protected $fillable = [
         'user_id',
