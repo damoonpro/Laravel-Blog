@@ -1,0 +1,68 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "89c2b4a6f4b5d633f9741dea6f387fdc",
+    "packages": [
+        {
+            "name": "damoonpro/laravel-tools",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/damoonpro/Laravel-Tools.git",
+                "reference": "4e0e7cd2cf710baed3d82694ae135fa190f99a2f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/damoonpro/Laravel-Tools/zipball/4e0e7cd2cf710baed3d82694ae135fa190f99a2f",
+                "reference": "4e0e7cd2cf710baed3d82694ae135fa190f99a2f",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Damoon\\Tools\\": "/src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mohammad Mahdi Noorani",
+                    "email": "matio.nora2000@gmail.com"
+                }
+            ],
+            "description": "This is usual tools that in damoonpro project will used",
+            "keywords": [
+                "file info",
+                "laravel",
+                "persian to english",
+                "response",
+                "striptags",
+                "tools",
+                "upload file"
+            ],
+            "support": {
+                "issues": "https://github.com/damoonpro/Laravel-Tools/issues",
+                "source": "https://github.com/damoonpro/Laravel-Tools/tree/main"
+            },
+            "time": "2022-08-14T13:18:58+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "damoonpro/laravel-tools": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": [],
+    "plugin-api-version": "2.3.0"
+}

@@ -13,5 +13,7 @@
             "email": "matio.nora2000@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "damoonpro/laravel-tools": "dev-main"
+    }
 }
