@@ -16,5 +16,7 @@ class BlogServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../database' => $this->app->databasePath('/'),
         ]);
+
+        require __DIR__.'/../routes/v1/api.php';
     }
 }
