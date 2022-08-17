@@ -9,4 +9,5 @@ Route::prefix('api/v1/blog')
     ->group(function (){
 
     Route::get('/', 'collect');
+    Route::get('{blog:slug}', 'single');
 });
