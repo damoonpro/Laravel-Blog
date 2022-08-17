@@ -36,6 +36,29 @@ class UserController extends BaseController
         ]);
     }
 
+    public function update($blog, BlogRequest $request){
+        $blog = $this->user()->blogs()->whereSlug($blog)->firstOrFail(); // users can update only them blogs
+
+        $blog->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'body' => $request->body,
+            'meta_title' => $request->meta_title,
+            'meta_description' => $request->meta_description,
+            'confirmed' => $blog->confirmed,
+        ]);
+
+        if(isset($request->categories)){
+            $blog = $this->setCategories($blog, $request->categories);
+        }
+
+        return Helpers::responseWithMessage('وبلاگ با موفقیت ویرایش شد', [
+            'blog' => [
+                'slug' => $blog->slug,
+            ]
+        ]);
+    }
+
     protected function setCategories(Blog $blog, array $categories){
         $result = [];
 
