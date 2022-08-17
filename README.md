@@ -19,3 +19,11 @@
 | ----- | ----- | ----- | ----- |-----------------------------------------------------------------------------------------------------------------------------|
 | / | GET | { ---- } | Collect latest confirmed blogs.<br>This route has paginate 9 | [ { title, slug, descriptoin, meta_title, meta_description, categories = [ { id, label } ], user = { name, ! is_admin } } ] |
 | {slug} | GET | { ---- } | Get single view of blogs | { title, slug, description, body, meta_title, meta_description, categories = [ { id, label } ], ! user = { name, ! is_admin } } |
+
+<br>
+
+##### User 🧑‍💻
+
+| URL | METHOD | REQUEST | DESCRIPTION | RESPONSE                                                                                                                    |
+| ----- | ----- | ----- | ----- |-----------------------------------------------------------------------------------------------------------------------------|
+| me/blog/create | POST | { title, description, body, meta_title, meta_description, ! categories } | create a blog for user | { message, blog = { slug } } |
