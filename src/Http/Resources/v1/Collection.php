@@ -20,6 +20,7 @@ class Collection extends ResourceCollection
 
             $model = [
                 'title' => $blog->title,
+                'slug' => $blog->slug,
                 'description' => $blog->description,
                 'meta_title' => $blog->meta_title,
                 'meta_description' => $blog->meta_description,
