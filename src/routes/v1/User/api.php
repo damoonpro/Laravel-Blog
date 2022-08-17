@@ -8,6 +8,7 @@ Route::prefix('api/v1/me/blog')->controller(UserController::class)->middleware([
     Route::post('create', 'create');
 
     Route::prefix('{slug}')->group(function (){
+        Route::get('/', 'single');
         Route::put('update', 'update');
     });
 });

@@ -5,6 +5,7 @@ namespace Damoon\Blog\Http\Controllers\api\v1;
 use App\Models\User;
 use Damoon\Blog\Http\Controllers\BaseController;
 use Damoon\Blog\Http\Requests\v1\Create as BlogRequest;
+use Damoon\Blog\Http\Resources\v1\Single as SingleBlogView;
 use Damoon\Blog\Models\Blog;
 use Damoon\Blog\Models\BlogCategory;
 use Damoon\Tools\Helpers;
@@ -57,6 +58,12 @@ class UserController extends BaseController
                 'slug' => $blog->slug,
             ]
         ]);
+    }
+
+    public function single($blog){
+        $blog = $this->user()->blogs()->whereSlug($blog)->firstOrFail();
+
+        return new SingleBlogView($blog, true);
     }
 
     protected function setCategories(Blog $blog, array $categories){
