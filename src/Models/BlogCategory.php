@@ -16,6 +16,6 @@ class BlogCategory extends Model
     ];
 
     public function blogs(){
-        return $this->belongsToMany(Blog::class, 'blog_category', foreignPivotKey: 'category_id');
+        return $this->belongsToMany(Blog::class, 'blog_category',  'category_id', 'blog_id');
     }
 }
