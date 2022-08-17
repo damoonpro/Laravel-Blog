@@ -29,3 +29,12 @@
 | me/blog/create        | POST   | { title, description, body, meta_title, meta_description, ! categories } | create a blog for user                                        | { message, blog = { slug } }                                                                     |
 | me/{slug}             | GET | { ---- } | Get single view of blogs if blog belong to authenitacted user | { title, slug, description, body, meta_title, meta_description, categories = [ { id, label } ] } |
 | me/blog/{slug}/update | PUT    | { title, description, body, meta_title, meta_description, ! categories } | user update the his blog                                      | { message, blog = { slug } }                                                                     |
+
+
+<br>
+
+##### Admin 😎
+
+| URL                   | METHOD | REQUEST | DESCRIPTION                                                 | RESPONSE                                                                                         |
+|-----------------------|--------| ----- |-------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| admin/blog | GET | { ---- } | Collect latest blogs for admin<br>This route has paginate 9 | [ { title, slug, descriptoin, meta_title, meta_description, categories = [ { id, label } ], user = { name, ! is_admin } } ] |
