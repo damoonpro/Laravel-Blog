@@ -18,3 +18,4 @@
 | URL | METHOD | REQUEST | DESCRIPTION | RESPONSE                                                                                                                    |
 | ----- | ----- | ----- | ----- |-----------------------------------------------------------------------------------------------------------------------------|
 | / | GET | { ---- } | Collect latest confirmed blogs.<br>This route has paginate 9 | [ { title, slug, descriptoin, meta_title, meta_description, categories = [ { id, label } ], user = { name, ! is_admin } } ] |
+| {slug} | GET | { ---- } | Get single view of blogs | { title, slug, description, body, meta_title, meta_description, categories = [ { id, label } ], ! user = { name, ! is_admin } } |
