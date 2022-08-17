@@ -15,6 +15,6 @@
 
 ##### Guest 🧑‍⚕️👨‍⚕️
 
-| URL | METHOD | REQUEST | DESCRIPTION | RESPONSE |
-| ----- | ----- | ----- | ----- | ----- |
-| / | GET | { ---- } | Collect latest confirmed blogs.<br>This route has paginate 9 | [ { title, descriptoin, meta_title, meta_description } ] |
+| URL | METHOD | REQUEST | DESCRIPTION | RESPONSE                                                                                                                    |
+| ----- | ----- | ----- | ----- |-----------------------------------------------------------------------------------------------------------------------------|
+| / | GET | { ---- } | Collect latest confirmed blogs.<br>This route has paginate 9 | [ { title, slug, descriptoin, meta_title, meta_description, categories = [ { id, label } ], user = { name, ! is_admin } } ] |
