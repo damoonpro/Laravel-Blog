@@ -24,6 +24,7 @@
 
 ##### User 🧑‍💻
 
-| URL | METHOD | REQUEST | DESCRIPTION | RESPONSE                                                                                                                    |
-| ----- | ----- | ----- | ----- |-----------------------------------------------------------------------------------------------------------------------------|
-| me/blog/create | POST | { title, description, body, meta_title, meta_description, ! categories } | create a blog for user | { message, blog = { slug } } |
+| URL                   | METHOD | REQUEST | DESCRIPTION              | RESPONSE                                                                                                                    |
+|-----------------------|--------| ----- |--------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| me/blog/create        | POST   | { title, description, body, meta_title, meta_description, ! categories } | create a blog for user   | { message, blog = { slug } } |
+| me/blog/{slug}/update | PUT    | { title, description, body, meta_title, meta_description, ! categories } | user update the his blog | { message, blog = { slug } } |
