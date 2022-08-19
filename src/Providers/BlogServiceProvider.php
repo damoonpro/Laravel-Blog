@@ -19,5 +19,6 @@ class BlogServiceProvider extends ServiceProvider
 
         require __DIR__.'/../routes/v1/api.php';
         require __DIR__.'/../routes/v1/User/api.php';
+        require __DIR__.'/../routes/v1/Admin/api.php';
     }
 }
