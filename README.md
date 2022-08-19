@@ -18,3 +18,11 @@
 | URL | METHOD | REQUEST | DESCRIPTION | RESPONSE |
 | ----- | ----- | ----- | ----- | ----- |
 | / | GET | { ---- } | Collect latest confirmed blogs.<br>This route has paginate 9 | [ { title, descriptoin, meta_title, meta_description } ] |
+
+<br>
+
+##### User 🧑‍💻
+
+| URL                   | METHOD | REQUEST | DESCRIPTION                                                   | RESPONSE                                                                                         |
+|-----------------------|--------| ----- |---------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
+| {slug}/like | POST | { ---- } | like and unlike blog by authenticated user | { message, blog = { slug } } |
