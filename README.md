@@ -35,6 +35,7 @@
 
 ##### Admin 😎
 
-| URL                   | METHOD | REQUEST | DESCRIPTION                                                 | RESPONSE                                                                                         |
-|-----------------------|--------| ----- |-------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
-| admin/blog | GET | { ---- } | Collect latest blogs for admin<br>This route has paginate 9 | [ { title, slug, descriptoin, meta_title, meta_description, categories = [ { id, label } ], user = { name, ! is_admin } } ] |
+| URL                   | METHOD | REQUEST | DESCRIPTION                                                      | RESPONSE                                                                                                                    |
+|-----------------------|--------| ----- |------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| admin/blog | GET | { ---- } | Collect latest blogs for admin<br>This route has paginate 9      | [ { title, slug, descriptoin, meta_title, meta_description, categories = [ { id, label } ], user = { name, ! is_admin } } ] |
+| admin/blog/category | GET | { ---- } | Collect categories for admin<br>This route has <b>paginate 9</b> | [ { id, label, user = { name, is_admin }, confirmed } ]                                                                     | 
