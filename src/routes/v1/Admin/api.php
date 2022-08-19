@@ -14,6 +14,7 @@ Route::prefix('api/v1/admin/blog')->middleware(['api', 'auth:sanctum'])->group(f
         Route::get('/', 'collect');
 
         Route::prefix('{category}')->group(function (){
+            Route::post('confirmed', 'confirmed');
             Route::put('update', 'update');
             Route::delete('delete', 'delete');
         });

@@ -56,4 +56,20 @@ class Controller extends BaseController
             ]
         ]);
     }
+
+    public function confirmed(BlogCategory $category){
+        $category->update([
+            'confirmed' => ($category->confirmed === 2 or ! $category->confirmed) ? true : false
+        ]);
+
+        $message = $category->confirmed ?
+            'دسته‌بندی با موفقیت فعال شد' :
+            'دسته‌بندی با موفقیت غیرفعال شد';
+
+        return Helpers::responseWithMessage($message, [
+            'category' => [
+                'id' => $category->id,
+            ]
+        ]);
+    }
 }
