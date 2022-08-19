@@ -2,6 +2,7 @@
 
 namespace Damoon\Blog\Models;
 
+use App\Models\User;
 use Database\Factories\BlogFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -33,5 +34,13 @@ class Blog extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+
+    public function categories(){
+        return $this->belongsToMany(BlogCategory::class, 'blog_category', 'blog_id', 'category_id');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 }

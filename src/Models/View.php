@@ -2,7 +2,7 @@
 
 namespace Damoon\Blog\Models;
 
-use Illuminate\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder;
 
 class View
 {
