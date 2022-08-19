@@ -11,12 +11,17 @@ class Collection extends ResourceCollection
 {
     public function toArray($request)
     {
-        return $this->collection->map(function (BlogCategory $category){
+        $i_am_admin = (! is_null(auth()->user()) and auth()->user()->is_admin());
+
+        return $this->collection->map(function (BlogCategory $category) use($i_am_admin){
+            $confirmed = $i_am_admin ? ($category->confirmed ?? 0) : null;
+
             $model = Helpers::arrayPure([
                 'id' => $category->id,
                 'label' => $category->label,
-                'user' => (! is_null(auth()->user()) and auth()->user()->is_admin()) ? new SingleUserView($category->user) : null,
-            ]);
+                'user' => $i_am_admin ? new SingleUserView($category->user) : null,
+                'confirmed' => $confirmed,
+            ], sensitive: true);
 
             return $model;
         });
