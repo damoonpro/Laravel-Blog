@@ -36,6 +36,10 @@ class Blog extends Model
             ->saveSlugsTo('slug');
     }
 
+    public function likes(){
+        return $this->hasMany(LikeBlog::class);
+    }
+
     public function categories(){
         return $this->belongsToMany(BlogCategory::class, 'blog_category', 'blog_id', 'category_id');
     }
