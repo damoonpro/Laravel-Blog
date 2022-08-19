@@ -9,6 +9,8 @@ class LikeBlog extends Model
 {
     use HasFactory;
 
+    protected $table = 'like_blog';
+
     public $timestamps = false;
 
     protected $fillable = [
