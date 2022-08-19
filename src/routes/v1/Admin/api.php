@@ -15,6 +15,7 @@ Route::prefix('api/v1/admin/blog')->middleware(['api', 'auth:sanctum'])->group(f
 
         Route::prefix('{category}')->group(function (){
             Route::put('update', 'update');
+            Route::delete('delete', 'delete');
         });
     });
 });

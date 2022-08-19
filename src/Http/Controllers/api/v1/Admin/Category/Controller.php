@@ -39,4 +39,21 @@ class Controller extends BaseController
             ])
         ]);
     }
+
+    public function delete(BlogCategory $category){
+        $access = ! $category->user->is_admin or ($category->user->is_admin and ($category->user->id == auth()->user()->id));
+        $message = $access ?
+            'دسته‌بندی با موفقیت حذف شد' :
+            'شما اجازه حذف کردن دسته‌بندی ایجاد شده توسط ادمین را ندارید';
+
+        $category->update([
+            'confirmed' => $access ? 2 : $category->confirmed,
+        ]);
+
+        return Helpers::responseWithMessage($message, [
+            'category' => [
+                'id' => $category->id,
+            ]
+        ]);
+    }
 }
