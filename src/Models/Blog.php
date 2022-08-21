@@ -48,6 +48,10 @@ class Blog extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function files(){
+        return $this->hasMany(BlogFile::class);
+    }
+
     public function views(){
         return $this->hasMany(BlogView::class);
     }

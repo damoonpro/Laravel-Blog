@@ -18,5 +18,10 @@ Route::prefix('api/v1/me/blog')->controller(UserController::class)->middleware([
     Route::prefix('{slug}')->group(function (){
         Route::get('/', 'single');
         Route::put('update', 'update');
+
+        Route::prefix('file')->group(function (){
+            Route::post('upload', 'upload');
+            Route::delete('{file}/delete', 'removeFile');
+        });
     });
 });

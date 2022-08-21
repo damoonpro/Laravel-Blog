@@ -3,6 +3,7 @@
 namespace Damoon\Blog\Http\Resources\v1;
 
 use Damoon\Blog\Http\Resources\v1\Category\Collection as CategoryCollection;
+use Damoon\Blog\Http\Resources\v1\File\Collection as FileCollection;
 use Damoon\Blog\Http\Resources\v1\User\Single as SingleUserView;
 use Damoon\Tools\Helpers;
 use Illuminate\Http\Resources\Json\JsonResource;
@@ -27,6 +28,7 @@ class Single extends JsonResource
             'meta_description' => $this->meta_description,
             'categories' => new CategoryCollection($categories),
             'user' => $this->belongToMe ? null  : new SingleUserView($this->user),
+            'files' => new FileCollection($this->files()->get()),
             'views' => $this->views()->count(),
             'likes' => $this->likes()->count(),
         ]);
