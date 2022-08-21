@@ -107,11 +107,11 @@ class UserController extends BaseController
         ]);
     }
 
-    public function removeFile($blog, $file){
+    public function removeFile($blog, $id){
         $blog = Blog::whereSlug($blog)->firstOrFail();
 
         if($blog->user->id == auth()->user()->id){
-            if($file = $blog->files()->whereId($file)->first()){
+            if($file = $blog->files()->whereId($id)->first()){
                 $file->delete();
 
                 return Helpers::responseWithMessage('حذف فایل موفقیت آمیز بود', [
@@ -124,7 +124,7 @@ class UserController extends BaseController
 
         return Helpers::responseWithMessage('چنین فایلی وجود ندارد', [
             'file' => [
-                'id' => $file,
+                'id' => $id,
             ]
         ]);
     }
