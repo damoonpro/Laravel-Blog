@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('blog_categories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->nullOnDelete();
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate()->cascadeOnDelete();
             $table->string('label');
             $table->boolean('confirmed')->nullable();
             $table->timestamps();
