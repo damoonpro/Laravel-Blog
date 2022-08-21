@@ -5,10 +5,12 @@ namespace Damoon\Blog\Http\Controllers\api\v1;
 use App\Models\User;
 use Damoon\Blog\Http\Controllers\BaseController;
 use Damoon\Blog\Http\Requests\v1\Create as BlogRequest;
+use Damoon\Blog\Http\Requests\v1\File\Upload as UploadFileRequest;
 use Damoon\Blog\Http\Resources\v1\Single as SingleBlogView;
 use Damoon\Blog\Models\Blog;
 use Damoon\Blog\Models\BlogCategory;
 use Damoon\Tools\Helpers;
+use Damoon\Tools\Storage\File;
 
 class UserController extends BaseController
 {
@@ -86,5 +88,21 @@ class UserController extends BaseController
         $blog->categories()->sync($result);
 
         return $blog;
+    }
+
+    public function upload($blog, UploadFileRequest $request){
+        $blog = $this->user()->blogs()->whereSlug($blog)->firstOrFail();
+
+        $fileInfo = File::advancedUpload($request->file, 'blog');
+
+        $file = $blog->files()->create([
+            'url' => $fileInfo['url'],
+        ]);
+
+        return Helpers::responseWithMessage('بارگذاری فایل موفقیت آمیز بود', [
+            'file' => [
+                'url' => $file->url(),
+            ]
+        ]);
     }
 }
