@@ -16,10 +16,15 @@ Route::controller(UserBlogController::class)->middleware(['api', 'auth:sanctum']
 
         Route::post('create', 'create');
         Route::get('/', 'collect');
+    });
 
-        Route::prefix('{slug}')->group(function (){
-            Route::get('/', 'single');
-            Route::put('update', 'update');
+    Route::prefix('{slug}')->group(function (){
+        Route::get('/', 'single');
+        Route::put('update', 'update');
+
+        Route::prefix('file')->group(function (){
+            Route::post('upload', 'upload');
+            Route::delete('{file}/delete', 'removeFile');
         });
     });
 });

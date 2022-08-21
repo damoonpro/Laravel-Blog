@@ -3,6 +3,7 @@
 namespace Damoon\Blog\Http\Resources\v1;
 
 use Damoon\Blog\Http\Resources\v1\Category\Collection as CategoryCollection;
+use Damoon\Blog\Http\Resources\v1\File\Collection as FileCollection;
 use Damoon\Blog\Http\Resources\v1\User\Single as SingleUserView;
 use Damoon\Blog\Models\Blog;
 use Illuminate\Http\Resources\Json\ResourceCollection;
@@ -29,6 +30,7 @@ class Collection extends ResourceCollection
                 'user' => new SingleUserView($blog->user),
                 'likes' => $blog->likes()->count(),
                 'views' => $blog->views()->count(),
+                'files' => new FileCollection($blog->files()->limit(3)->get()),
             ];
 
             return $model;
