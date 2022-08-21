@@ -5,6 +5,7 @@ namespace Damoon\Blog\Http\Controllers\api\v1;
 use App\Models\User;
 use Damoon\Blog\Http\Controllers\BaseController;
 use Damoon\Blog\Http\Requests\v1\Create as BlogRequest;
+use Damoon\Blog\Http\Resources\v1\Collection as BlogCollection;
 use Damoon\Blog\Http\Resources\v1\Single as SingleBlogView;
 use Damoon\Blog\Models\Blog;
 use Damoon\Blog\Models\BlogCategory;
@@ -86,5 +87,9 @@ class UserController extends BaseController
         $blog->categories()->sync($result);
 
         return $blog;
+    }
+
+    public function collect(){
+        return new BlogCollection($this->user()->blogs()->paginate(9));
     }
 }

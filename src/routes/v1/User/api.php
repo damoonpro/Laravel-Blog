@@ -14,6 +14,7 @@ Route::prefix('api/v1/blog')->middleware(['api', 'auth:sanctum'])->controller(Us
 Route::prefix('api/v1/me/blog')->controller(UserController::class)->middleware(['api', 'auth:sanctum'])->group(function (){
 
     Route::post('create', 'create');
+    Route::get('/', 'collect');
 
     Route::prefix('{slug}')->group(function (){
         Route::get('/', 'single');
