@@ -13,4 +13,8 @@ class BlogFile extends Model
        'blog_id',
        'url',
     ];
+
+    public function url(){
+        return env('APP_URL').$this->url;
+    }
 }
