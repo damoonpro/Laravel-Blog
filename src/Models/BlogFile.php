@@ -17,4 +17,8 @@ class BlogFile extends Model
     public function url(){
         return env('APP_URL').$this->url;
     }
+
+    public function blog(){
+        return $this->belongsTo(Blog::class);
+    }
 }
