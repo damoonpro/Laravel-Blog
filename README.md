@@ -27,7 +27,7 @@
 | me/{slug}                       | GET    | { ---- }                                                                 | Get single view of blogs if blog belong to authenitacted user | { title, slug, description, body, meta_title, meta_description, categories = [ { id, label } ], files = [ { id, url } ] } |
 | me/blog/{slug}/update           | PUT    | { title, description, body, meta_title, meta_description, ! categories } | user update the his blog                                      | { message, blog = { slug } }                                                                                              |
 | me/blog/{slug}/file/upload      | POST   | { file }  | upload file for blog if blog belong to user                   | { message, file = { url } }                                                                                               |
-| me/blog/{slug}/file/{id}/delete | DELETE | { file }  | upload file for blog if blog belong to user                   | { message, file = { id } }      or { message, blog = { slug } }                                                           |
+| me/blog/{slug}/file/{id}/delete | DELETE | { file }  | delete file of blog if blog belong to user                    | { message, file = { id } }      or { message, blog = { slug } }                                                           |
 | {slug}/like                     | POST   | { ---- }                                                                 | like and unlike blog by authenticated user                    | { message, blog = { slug } }                                                                                              |
 
 <br>
