@@ -9,6 +9,7 @@ use Damoon\Blog\Http\Requests\v1\File\Upload as UploadFileRequest;
 use Damoon\Blog\Http\Resources\v1\Single as SingleBlogView;
 use Damoon\Blog\Models\Blog;
 use Damoon\Blog\Models\BlogCategory;
+use Damoon\Blog\Models\BlogFile;
 use Damoon\Tools\Helpers;
 use Damoon\Tools\Storage\File;
 
@@ -102,6 +103,28 @@ class UserController extends BaseController
         return Helpers::responseWithMessage('بارگذاری فایل موفقیت آمیز بود', [
             'file' => [
                 'url' => $file->url(),
+            ]
+        ]);
+    }
+
+    public function removeFile($blog, $file){
+        $blog = Blog::whereSlug($blog)->firstOrFail();
+
+        if($blog->user->id == auth()->user()->id){
+            if($file = $blog->files()->whereId($file)->first()){
+                $file->delete();
+
+                return Helpers::responseWithMessage('حذف فایل موفقیت آمیز بود', [
+                    'blog' => [
+                        'slug' => $file->blog->slug,
+                    ]
+                ]);
+            }
+        }
+
+        return Helpers::responseWithMessage('چنین فایلی وجود ندارد', [
+            'file' => [
+                'id' => $file,
             ]
         ]);
     }

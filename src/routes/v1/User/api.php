@@ -19,5 +19,6 @@ Route::prefix('api/v1/me/blog')->controller(UserController::class)->middleware([
         Route::get('/', 'single');
         Route::put('update', 'update');
         Route::post('upload', 'upload');
+        Route::delete('{file}/delete', 'removeFile');
     });
 });
