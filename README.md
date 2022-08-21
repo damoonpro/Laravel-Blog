@@ -18,7 +18,6 @@
 | {slug} | GET | { ---- } | Get single view of blogs | { title, slug, description, body, meta_title, meta_description, categories = [ { id, label } ], ! user = { name, ! is_admin }, views, likes, files = [ { id, url } ] }           |
 
 
-
 <br>
 
 ##### User 🧑‍💻
