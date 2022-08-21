@@ -5,10 +5,7 @@
 - Right now we are working on [ v1 ] package
 
 ### TODO ✍️
-1. Set category for blogs
-2. Return count of blogs view
-3. Return count of blogs like
-4. Set filter for blogs
+1. Set filter for blogs
 
 #### Routes 🚀
 - Every route start with [ v1/blog ] 
