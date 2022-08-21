@@ -56,4 +56,8 @@ class Blog extends Model
         return $this->hasMany(BlogFile::class);
 >>>>>>> file
     }
+
+    public function views(){
+        return $this->hasMany(BlogView::class);
+    }
 }

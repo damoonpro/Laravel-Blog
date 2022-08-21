@@ -31,6 +31,8 @@ class Collection extends ResourceCollection
                 'likes' => $blog->likes()->count(),
                 'views' => $blog->views()->count(),
                 'files' => new FileCollection($blog->files()->limit(3)->get()),
+                'likes' => $blog->likes()->count(),
+                'views' => $blog->views()->count(),
             ];
 
             return $model;
