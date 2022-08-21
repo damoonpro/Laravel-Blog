@@ -27,6 +27,8 @@ class Single extends JsonResource
             'meta_description' => $this->meta_description,
             'categories' => new CategoryCollection($categories),
             'user' => $this->belongToMe ? null  : new SingleUserView($this->user),
+            'views' => $this->views()->count(),
+            'likes' => $this->likes()->count(),
         ]);
 
         return $model;

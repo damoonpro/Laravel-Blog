@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Builder;
 class View
 {
     public static function available(): Builder{
-        return Blog::whereConfirmed(1)->latest();
+        return Blog::query()
+            ->withCount('views')->orderBy('views_count', 'desc')
+            ->withCount('likes')->orderBy('likes_count', 'desc')
+            ->whereConfirmed(1)->latest();
     }
 }
