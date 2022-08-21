@@ -27,6 +27,8 @@ class Collection extends ResourceCollection
                 'meta_description' => $blog->meta_description,
                 'categories' => new CategoryCollection($categories),
                 'user' => new SingleUserView($blog->user),
+                'likes' => $blog->likes()->count(),
+                'views' => $blog->views()->count(),
             ];
 
             return $model;
