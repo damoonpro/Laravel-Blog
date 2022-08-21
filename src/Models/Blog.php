@@ -47,4 +47,13 @@ class Blog extends Model
     public function user(){
         return $this->belongsTo(User::class);
     }
+
+<<<<<<< HEAD
+    public function views(){
+        return $this->hasMany(BlogView::class);
+=======
+    public function files(){
+        return $this->hasMany(BlogFile::class);
+>>>>>>> file
+    }
 }
