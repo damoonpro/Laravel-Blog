@@ -1,5 +1,5 @@
 {
-    "name": "damoonpro/blog",
+    "name": "damoonpro/laravel-blog",
     "description": "This is blog module for damoon company",
     "license": "MIT",
     "autoload": {
